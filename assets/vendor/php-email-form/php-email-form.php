@@ -63,11 +63,11 @@ class PHP_Email_Form {
     $this->options[$name] = $val;
   }
 
-  public function add_attachment($name, $max_size = 20, $allowed_exensions = ['jpeg','jpg','png','pdf','doc','docx'] ) {
+  public function add_attachment($name, $max_size = 20, $allowed_extensions = ['jpeg','jpg','png','pdf','doc','docx'] ) {
     if( !empty($_FILES[$name]['name']) ) {
-      $file_exension = strtolower(pathinfo($_FILES[$name]['name'], PATHINFO_EXTENSION));
-      if( ! in_array($file_exension, $allowed_exensions) ) {
-        die( '(' .$name . ') ' . $this->error_msg['invalid_attachment_extension'] . " ." . implode(", .", $allowed_exensions) );
+      $file_extension = strtolower(pathinfo($_FILES[$name]['name'], PATHINFO_EXTENSION));
+      if( ! in_array($file_extension, $allowed_extensions) ) {
+        die( '(' .$name . ') ' . $this->error_msg['invalid_attachment_extension'] . " ." . implode(", .", $allowed_extensions) );
       }
   
       if( $_FILES[$name]['size'] > (1024 * 1024 * $max_size) ) {
@@ -104,11 +104,11 @@ class PHP_Email_Form {
         ]
       ];
 
-      $recapthca_context = stream_context_create($recaptcha_options);
-      $recapthca_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $recapthca_context);
-      $recapthca_response_keys = json_decode($recapthca_response,true);
+      $recaptcha_context = stream_context_create($recaptcha_options);
+      $recaptcha_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $recaptcha_context);
+      $recaptcha_response_keys = json_decode($recaptcha_response,true);
 
-      if( ! $recapthca_response_keys['success'] ) {
+      if( ! $recaptcha_response_keys['success'] ) {
         return 'Failed to validate the reCaptcha!';
       }
     }
@@ -469,7 +469,7 @@ class PHPMailer
      * $_SERVER['SERVER_NAME'], gethostname(), php_uname('n'), or the value
      * 'localhost.localdomain'.
      *
-     * @see PHPMailer::$Helo
+     * @see PHPMailer::$Hello
      *
      * @var string
      */
