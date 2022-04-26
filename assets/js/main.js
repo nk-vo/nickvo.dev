@@ -43,22 +43,22 @@
   /**
    * Navbar links active state on scroll
    */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
+  let navbarLinks = select('#navbar .scrollto', true)
+  const navbarLinksActive = () => {
     let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
+    navbarLinks.forEach(navbarLink => {
+      if (!navbarLink.hash) return
+      let section = select(navbarLink.hash)
       if (!section) return
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
+        navbarLink.classList.add('active')
       } else {
-        navbarlink.classList.remove('active')
+        navbarLink.classList.remove('active')
       }
     })
   }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+  window.addEventListener('load', navbarLinksActive)
+  onscroll(document, navbarLinksActive)
 
   /**
    * Scrolls to an element with header offset
@@ -97,7 +97,7 @@
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scroll with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -115,7 +115,7 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Scroll with offset on page load with hash links in the url
    */
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -144,10 +144,10 @@
   /**
    * Skills animation
    */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
+  let skillsContent = select('.skills-content');
+  if (skillsContent) {
     new Waypoint({
-      element: skilsContent,
+      element: skillsContent,
       offset: '80%',
       handler: function(direction) {
         let progress = select('.progress .progress-bar', true);
@@ -159,7 +159,7 @@
   }
 
   /**
-   * Porfolio isotope and filter
+   * Portfolio isotope and filter
    */
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
@@ -168,9 +168,9 @@
         itemSelector: '.portfolio-item'
       });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+      let portfolioFilters = select('#portfolio-filters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-filters li', function(e) {
         e.preventDefault();
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
