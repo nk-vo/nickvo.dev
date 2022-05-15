@@ -260,7 +260,11 @@
 
   message_submit.addEventListener('click', function (e) {
     e.preventDefault();
-  
-    alert('Thank you for your message! I will get back to you as soon as I can.');
+    
+    var message = "Thank you for your message! I will get back to you as soon as I can."
+    if(!alert(message)){window.location.reload();}
+    
   });
+
+  
 })()
