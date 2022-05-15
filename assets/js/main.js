@@ -259,7 +259,7 @@
   var message_submit = document.querySelector('#message-submit');
 
   message_submit.addEventListener('click', function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     
     var message = "Thank you for your message! I will get back to you as soon as I can."
     if(!alert(message)){window.location.reload();}
