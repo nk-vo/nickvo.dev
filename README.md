@@ -1,4 +1,1 @@
-Template Name: iPortfolio <br>
-Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ <br>
-Author: BootstrapMade.com <br>
-License: https://bootstrapmade.com/license/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d8aff464-0b23-46c0-a4de-2309aa944044/deploy-status)](https://app.netlify.com/sites/my-portfolio-nkvo/deploys)
